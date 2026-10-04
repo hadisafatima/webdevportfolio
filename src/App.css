@@ -1,0 +1,626 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.pf {
+  --paper: #F6F7FB;
+  --paper-deep: #E8EBF8;
+  --rule: #CBD0E6;
+  --ink: #151A45;
+  --ink-2: #4A4F73;
+  --indigo: #1B2261;
+  --indigo-line: #3A4394;
+  --on-indigo: #F5F5F1;
+  --on-indigo-2: rgba(245, 245, 241, 0.74);
+  --yellow: #FFC61A;
+  --focus: var(--indigo);
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.pf .brand-dot { color: var(--yellow); }
+
+.pf ::selection {
+  background: var(--yellow);
+  color: var(--indigo);
+}
+
+.pf *,
+.pf *::before,
+.pf *::after {
+  box-sizing: border-box;
+}
+
+.pf h1,
+.pf h2,
+.pf h3,
+.pf h4,
+.pf p,
+.pf ul,
+.pf ol,
+.pf figure {
+  margin: 0;
+  padding: 0;
+}
+
+.pf ul,
+.pf ol {
+  list-style: none;
+}
+
+.pf a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pf a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Headings and UI text: Archivo (variable width). Body: Source Serif 4. */
+.pf h1,
+.pf h2,
+.pf h3,
+.pf h4,
+.pf .ui {
+  font-family: 'Archivo', system-ui, sans-serif;
+}
+
+.pf .wrap {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+
+/* Dark blocks (top bar, hero, contact) */
+.pf .dark {
+  background: var(--indigo);
+  color: var(--on-indigo);
+  --focus: var(--yellow);
+}
+
+/* Underlined text link. Paper: yellow highlighter on hover. Dark: turns yellow. */
+.pf .u {
+  border-bottom: 2px solid currentColor;
+  transition: background-color .15s, color .15s;
+}
+
+.pf .u:hover { background: var(--yellow); color: var(--indigo); }
+.pf .dark .u:hover { background: transparent; color: var(--yellow); }
+
+/* ---------- Top bar ---------- */
+.pf .bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(245, 245, 241, 0.12);
+}
+
+.pf .bar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 64px;
+}
+
+.pf .brand {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1;
+  font-stretch: 125%;
+  letter-spacing: -0.01em;
+}
+
+.pf .bar nav {
+  display: flex;
+  gap: 28px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.pf .bar nav a {
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color .15s;
+}
+
+.pf .bar nav a:hover {
+  border-color: var(--yellow);
+}
+
+.pf .btn-outline {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  padding: 10px 16px;
+  border: 1.5px solid rgba(245, 245, 241, .5);
+  border-radius: 4px;
+  transition: background-color .15s, color .15s, border-color .15s;
+}
+
+.pf .btn-outline:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--indigo);
+}
+
+/* ---------- Hero ---------- */
+.pf .hero {
+  padding: clamp(56px, 9vw, 120px) 0 clamp(64px, 9vw, 120px);
+}
+
+.pf .hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
+.pf h1 {
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: clamp(36px, 4.6vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.pf .hero p {
+  margin-top: 24px;
+  max-width: 52ch;
+  font-size: 20px;
+  color: var(--on-indigo-2);
+}
+
+.pf .hero h1+p {
+  margin-top: 32px;
+}
+
+.pf .cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 26px;
+  margin-top: 36px;
+  font-family: 'Archivo', sans-serif;
+}
+
+.pf .btn-solid {
+  background: var(--yellow);
+  color: var(--indigo);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  padding: 15px 22px;
+  border-radius: 4px;
+  transition: background-color .15s;
+}
+
+.pf .btn-solid:hover {
+  background: var(--on-indigo);
+}
+
+/* ---------- Request flow (hero background) ----------
+   Decorative: a request travelling through client, API, cache and
+   database. Large, soft and faded at the edges so it sits behind the
+   hero text instead of competing with it. */
+.pf .hero {
+  position: relative;
+  overflow: hidden;
+  background-image: radial-gradient(rgba(245, 245, 241, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.pf .hero .wrap > div {
+  position: relative;
+  z-index: 1;
+}
+
+.pf .flow-bg {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: -6%;
+  width: min(820px, 64vw);
+  transform: translateY(-50%);
+  opacity: .5;
+  filter: blur(1.5px);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 38%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, #000 38%, transparent 72%);
+}
+
+.pf .flow-bg svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Connections between layers */
+.pf .edge {
+  stroke: var(--indigo-line);
+  stroke-width: 2;
+  transition: stroke .4s;
+}
+
+.pf .edge.on {
+  stroke: var(--yellow);
+  stroke-width: 3;
+}
+
+/* Layers */
+.pf .node rect {
+  fill: rgba(58, 67, 148, 0.28);
+  stroke: var(--indigo-line);
+  stroke-width: 1.5;
+  transition: fill .4s, stroke .4s;
+}
+
+.pf .node.on rect {
+  fill: rgba(255, 198, 26, 0.16);
+  stroke: var(--yellow);
+}
+
+.pf .node-title {
+  fill: var(--on-indigo);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.pf .node-tech {
+  fill: var(--on-indigo-2);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+}
+
+/* The request: a dot that rides above whichever layer has it */
+.pf .packet {
+  transition: transform 1s ease-in-out;
+}
+
+.pf .packet-halo {
+  fill: rgba(255, 198, 26, 0.3);
+}
+
+.pf .packet-dot {
+  fill: var(--yellow);
+}
+
+/* ---------- Paper sections ---------- */
+.pf .sec {
+  padding: clamp(64px, 9vw, 120px) 0;
+  scroll-margin-top: 64px;
+  background: var(--paper);
+}
+
+.pf .sec.alt {
+  background: var(--paper-deep);
+}
+
+.pf .sec h2::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 4px;
+  margin-bottom: 16px;
+  border-radius: 2px;
+  background: var(--yellow);
+}
+
+.pf .sec .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: clamp(24px, 5vw, 72px);
+}
+
+.pf h2 {
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.pf .sec-note {
+  margin-top: 14px;
+  max-width: 24ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* Projects */
+.pf .group+.group {
+  margin-top: 64px;
+}
+
+.pf .group-title {
+  padding-bottom: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.2;
+  color: var(--ink-2);
+}
+
+.pf .proj {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(16px, 3vw, 48px);
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.pf .proj:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.pf .proj h4 {
+  font-weight: 800;
+  font-stretch: 108%;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.pf .proj-status {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 11px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--ink-2);
+}
+
+.pf .proj-status.done {
+  background: var(--indigo);
+  border-color: var(--indigo);
+  color: var(--on-indigo);
+}
+
+.pf .proj-status.live {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--indigo);
+}
+
+.pf .proj-desc {
+  max-width: 60ch;
+  font-size: 17px;
+}
+
+.pf .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.pf .chips li {
+  padding: 6px 11px;
+  border-radius: 4px;
+  background: var(--paper-deep);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.pf .proj-links {
+  display: flex;
+  gap: 22px;
+  margin-top: 18px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* About */
+.pf .about p {
+  max-width: 62ch;
+}
+
+.pf .about p+p {
+  margin-top: 1.2em;
+}
+
+.pf .about .lead {
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+/* Stack */
+.pf .layers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.pf .layers h3 {
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ink);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.pf .layers li {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+/* ---------- Contact ---------- */
+.pf .contact {
+  padding-top: clamp(72px, 10vw, 140px);
+  scroll-margin-top: 64px;
+}
+
+.pf .contact .grid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: end;
+}
+
+.pf .contact h2 {
+  font-size: clamp(34px, 4.6vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.pf .contact .lede {
+  margin-top: 24px;
+  max-width: 40ch;
+  font-size: 19px;
+  color: var(--on-indigo-2);
+}
+
+.pf .contact-list li {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid var(--indigo-line);
+}
+
+.pf .contact-list li:last-child {
+  border-bottom: 1px solid var(--indigo-line);
+}
+
+.pf .contact-list .k {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--on-indigo-2);
+}
+
+.pf .contact-list a {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-stretch: 108%;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  transition: color .15s;
+}
+
+.pf .contact-list a:hover {
+  color: var(--yellow);
+}
+
+.pf .foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: clamp(72px, 10vw, 120px);
+  padding: 24px 0 32px;
+  border-top: 1px solid var(--indigo-line);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--on-indigo-2);
+}
+
+.pf .foot a:hover {
+  color: var(--yellow);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+
+  .pf .hero .wrap,
+  .pf .contact .grid,
+  .pf .sec .wrap,
+  .pf .proj {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf .flow-bg {
+    right: 50%;
+    width: 150vw;
+    transform: translate(50%, -50%);
+    opacity: .28;
+  }
+
+  .pf .sec-note {
+    max-width: 40ch;
+  }
+}
+
+@media (max-width: 700px) {
+  .pf .bar {
+    position: static;
+  }
+
+  .pf .bar .wrap {
+    flex-wrap: wrap;
+    padding-block: 14px;
+    gap: 14px 16px;
+    min-height: 0;
+  }
+
+  .pf .bar nav {
+    order: 3;
+    width: 100%;
+    gap: 22px;
+  }
+
+  .pf .sec,
+  .pf .contact {
+    scroll-margin-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .pf .layers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf .contact-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .pf *,
+  .pf *::before,
+  .pf *::after {
+    transition-duration: .001ms !important;
+    animation: none !important;
+  }
+}
